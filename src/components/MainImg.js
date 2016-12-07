@@ -4,12 +4,6 @@
 import React,{Component,PropTypes} from 'react';
 
 export default class MainImg extends Component{
-    /*static propTypes = {
-        imgUrl:PropsTypes.string.isRequired
-    }
-    static defaultProps = {
-        imgUrl:'./img/NottulnHerbst_ZH-CN9638949027_1920x1080.jpg'
-    }*/
     constructor(props){
         super(props);
         this.state = {
@@ -29,8 +23,6 @@ export default class MainImg extends Component{
                 imgHeight:img.height,
                 imgWidth:img.width
             });
-            console.log('img width:'+img.width+' height:'+img.height);
-            console.log('canvas width:'+imgCanvas.width+' height:'+imgCanvas.height);
             context.clearRect(0,0,img.width,img.height);
             context.drawImage(img,0,0,img.width,img.height);
             //context.drawImage(img,0,0,img.width,img.height,0,0,img.width,img.height);
@@ -45,24 +37,25 @@ export default class MainImg extends Component{
         this.drawImage(newProps);
     }
     componentDidMount(){
-        console.log('componentDidMount');
         this.drawImage(this.props);
     }
     render(){
+        const {onImgClick} = this.props;
         let style = {
             margin:'0',
             padding:'0',
             display:'block'
         };
         return (
-            <div>
+            <div onClick={onImgClick}>
                 <canvas ref='imgCanvas' height={this.state.imgHeight} width={this.state.imgWidth} style={style}/>
             </div>)
     }
 }
 
 MainImg.propTypes = {
-    imgUrl:PropTypes.string.isRequired
+    imgUrl:PropTypes.string.isRequired,
+    onImgClick:PropTypes.func.isRequired
 }
 MainImg.defaultProps = {
     imgUrl:'./img/NottulnHerbst_ZH-CN9638949027_1920x1080.jpg'

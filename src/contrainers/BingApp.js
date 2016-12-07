@@ -4,14 +4,30 @@
 import React, { Component, PropTypes } from 'react'
 import ImgMsg from '../components/ImgMsg'
 import MainImg from '../components/MainImg'
+import { connect } from 'react-redux'
+import { onImgClick } from '../actions'
 
-export default class BingApp extends Component{
+class BingApp extends Component{
     render(){
+        const { isShow,onImgClick } = this.props;
         return(
             <div>
-                <MainImg/>
-                <ImgMsg/>
+                <MainImg onImgClick={onImgClick}/>
+                <ImgMsg isShow={isShow}/>
             </div>
         )
     }
 }
+BingApp.propTypes = {
+    isShow:PropTypes.bool.isRequired,
+    onImgClick:PropTypes.func.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    isShow:state.isShow,
+});
+
+export default connect(mapStateToProps,{
+    onImgClick
+})(BingApp);
+
