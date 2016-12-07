@@ -6,7 +6,15 @@ const entities = (state,action) =>{
     switch (action.type){
         case 'USER_CLICK':
             return {
+                ...state,
                 isShow:!(state.isShow)
+            };
+        case 'USER_SIMPLEIMG_CLICK':
+            //console.log('action url:'+action.value);
+            let mainUrl = action.value.replace('192x108','1920x1080');
+            return {
+                ...state,
+                mainUrl:mainUrl
             };
         default:
             return state;

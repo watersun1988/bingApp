@@ -10,6 +10,7 @@ import { createStore } from 'redux'
 
 let store = createStore(todoApp,{
     isShow:true,
+    mainUrl:'',
 });
 
 render(
