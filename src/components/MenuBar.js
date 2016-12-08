@@ -22,14 +22,17 @@ export default class MenuBar extends Component{
         let style = {
             position:'fixed',
             top:'0px',
-            display:displayStyle
+            width:screen.availWidth,
+            display:displayStyle,
         }
         return(
             <div className="dropdown" style={style}>
-                <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
+                style={{float:'right'}}>
                     DropDown
                 </button>
-                <ul className="dropdown-menu" role="menu">
+                <ul className="dropdown-menu dropdown-menu-right" role="menu"
+                    style={{height:'500px',overflow:'auto'}}>
                     {listNodes}
                 </ul>
             </div>
@@ -44,6 +47,18 @@ MenuBar.propTypes = {
 
 MenuBar.defaultProps = {
     imgList:[
+        {
+            url:'./img/NottulnHerbst_ZH-CN9638949027_192x108.jpg'
+        },
+        {
+            url:'./img/IgelHerbst_ZH-CN7813320285_192x108.jpg'
+        },
+        {
+            url:'./img/NottulnHerbst_ZH-CN9638949027_192x108.jpg'
+        },
+        {
+            url:'./img/IgelHerbst_ZH-CN7813320285_192x108.jpg'
+        },
         {
             url:'./img/NottulnHerbst_ZH-CN9638949027_192x108.jpg'
         },

@@ -23624,6 +23624,7 @@
 	            var style = {
 	                position: 'fixed',
 	                top: '0px',
+	                width: screen.availWidth,
 	                display: displayStyle
 	            };
 	            return _react2.default.createElement(
@@ -23631,12 +23632,14 @@
 	                { className: "dropdown", style: style },
 	                _react2.default.createElement(
 	                    "button",
-	                    { className: "btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown" },
+	                    { className: "btn btn-default dropdown-toggle", type: "button", "data-toggle": "dropdown",
+	                        style: { float: 'right' } },
 	                    "DropDown"
 	                ),
 	                _react2.default.createElement(
 	                    "ul",
-	                    { className: "dropdown-menu", role: "menu" },
+	                    { className: "dropdown-menu dropdown-menu-right", role: "menu",
+	                        style: { height: '500px', overflow: 'auto' } },
 	                    listNodes
 	                )
 	            );
@@ -23656,6 +23659,14 @@
 
 	MenuBar.defaultProps = {
 	    imgList: [{
+	        url: './img/NottulnHerbst_ZH-CN9638949027_192x108.jpg'
+	    }, {
+	        url: './img/IgelHerbst_ZH-CN7813320285_192x108.jpg'
+	    }, {
+	        url: './img/NottulnHerbst_ZH-CN9638949027_192x108.jpg'
+	    }, {
+	        url: './img/IgelHerbst_ZH-CN7813320285_192x108.jpg'
+	    }, {
 	        url: './img/NottulnHerbst_ZH-CN9638949027_192x108.jpg'
 	    }, {
 	        url: './img/IgelHerbst_ZH-CN7813320285_192x108.jpg'
