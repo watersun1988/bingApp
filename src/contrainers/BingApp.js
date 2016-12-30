@@ -5,10 +5,22 @@ import React, { Component, PropTypes } from 'react'
 import ImgMsg from '../components/ImgMsg'
 import MainImg from '../components/MainImg'
 import { connect } from 'react-redux'
-import { onImgClick,onSimpleImgClick } from '../actions'
+import { onImgClick,onSimpleImgClick,loadImage } from '../actions'
 import MenuBar from '../components/MenuBar'
 
+
 class BingApp extends Component{
+    static propTypes = {
+        isShow:PropTypes.bool.isRequired,
+        onImgClick:PropTypes.func.isRequired,
+        onSimpleImgClick:PropTypes.func.isRequired,
+        mainUrl:PropTypes.string.isRequired,
+        loadImage:PropTypes.func.isRequired
+    }
+    componentDidMount(){
+        const {loadImage} = this.props;
+        loadImage();
+    }
     render(){
         const { isShow,onImgClick,onSimpleImgClick,mainUrl} = this.props;
         return(
@@ -20,12 +32,6 @@ class BingApp extends Component{
         )
     }
 }
-BingApp.propTypes = {
-    isShow:PropTypes.bool.isRequired,
-    onImgClick:PropTypes.func.isRequired,
-    onSimpleImgClick:PropTypes.func.isRequired,
-    mainUrl:PropTypes.string.isRequired
-}
 
 const mapStateToProps = (state) => ({
     isShow:state.isShow,
@@ -34,6 +40,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps,{
     onImgClick,
-    onSimpleImgClick
+    onSimpleImgClick,
+    loadImage
 })(BingApp);
 
